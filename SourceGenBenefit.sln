@@ -9,6 +9,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{C307E7F7-1C37-4828-883D-9389401D53E4}"
 	ProjectSection(SolutionItems) = preProject
 		Readme.md = Readme.md
+		Launch.md = Launch.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SourceGenBenefit.Domain", "SourceGenBenefit.Domain\SourceGenBenefit.Domain.csproj", "{658C0959-4CBC-4075-8BCB-C4CA2DAC33B0}"

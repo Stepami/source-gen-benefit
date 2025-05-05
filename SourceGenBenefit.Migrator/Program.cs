@@ -6,7 +6,7 @@ using Npgsql;
 const string pgCnnStr =
     "Server=localhost;Port=5432;User Id=postgres;Password=postgres;Database=";
 
-const string dbName = "sg_benefit_db2";
+var dbName = args[0];
 
 await using var dataSource = NpgsqlDataSource.Create(pgCnnStr + "postgres");
 
