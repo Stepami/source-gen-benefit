@@ -1,4 +1,5 @@
 using FluentValidation;
+using SourceGenBenefit.Contracts;
 
 namespace SourceGenBenefit.Before.Create;
 

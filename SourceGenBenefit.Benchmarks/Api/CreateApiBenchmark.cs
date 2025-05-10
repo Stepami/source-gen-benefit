@@ -1,6 +1,7 @@
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Jobs;
 using Microsoft.Extensions.DependencyInjection;
+using SourceGenBenefit.Contracts;
 
 namespace SourceGenBenefit.Benchmarks.Api;
 
@@ -10,7 +11,7 @@ public class CreateApiBenchmark
     private ServiceProvider _serviceProvider;
     private readonly CreateTestEntityFaker _faker = new();
 
-    private List<CreateTestEntityCommand> _commands = [];
+    private List<CreateTestEntity> _entities = [];
 
     [Params(10, 100)] public int TestEntitiesCount;
 
@@ -28,9 +29,7 @@ public class CreateApiBenchmark
         services.AddHttpApi<ITestEntityApiAfter>();
         services.AddHttpApi<ITestEntityApiBefore>();
         _serviceProvider = services.BuildServiceProvider();
-        _commands = _faker.Generate(TestEntitiesCount)
-            .Select(x => new CreateTestEntityCommand(x))
-            .ToList();
+        _entities = _faker.Generate(TestEntitiesCount);
     }
 
     [Benchmark]
@@ -40,7 +39,7 @@ public class CreateApiBenchmark
         var after = scope.ServiceProvider.GetService<ITestEntityApiAfter>();
         for (var i = 0; i < TestEntitiesCount; i++)
         {
-            await after.Create(_commands[i]);
+            await after.Create(_entities[i]);
         }
     }
 
@@ -51,7 +50,7 @@ public class CreateApiBenchmark
         var before = scope.ServiceProvider.GetService<ITestEntityApiBefore>();
         for (var i = 0; i < TestEntitiesCount; i++)
         {
-            await before.Create(_commands[i]);
+            await before.Create(_entities[i]);
         }
     }
 
@@ -65,6 +64,6 @@ public class CreateApiBenchmark
         }
 
         await _serviceProvider.DisposeAsync();
-        _commands.Clear();
+        _entities.Clear();
     }
 }

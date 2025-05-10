@@ -1,11 +1,10 @@
 using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.Logging;
+using SourceGenBenefit.Contracts;
 using SourceGenBenefit.Domain;
 
 namespace SourceGenBenefit.Before.GetList;
-
-public record TestEntitiesListQuery : IRequest<IReadOnlyList<TestEntityDto>>;
 
 public class TestEntitiesListQueryHandler(
     IMapper mapper,

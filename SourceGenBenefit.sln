@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SourceGenBenefit.Migrator",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SourceGenBenefit.After.Api", "SourceGenBenefit.After.Api\SourceGenBenefit.After.Api.csproj", "{EC330F0B-1301-477B-B7CC-31364254B6A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SourceGenBenefit.Contracts", "SourceGenBenefit.Contracts\SourceGenBenefit.Contracts.csproj", "{09BD4749-D251-417C-8154-66641B127B8B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,5 +56,9 @@ Global
 		{EC330F0B-1301-477B-B7CC-31364254B6A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC330F0B-1301-477B-B7CC-31364254B6A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC330F0B-1301-477B-B7CC-31364254B6A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09BD4749-D251-417C-8154-66641B127B8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09BD4749-D251-417C-8154-66641B127B8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09BD4749-D251-417C-8154-66641B127B8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09BD4749-D251-417C-8154-66641B127B8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

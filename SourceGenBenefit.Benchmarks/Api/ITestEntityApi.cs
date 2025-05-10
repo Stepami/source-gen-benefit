@@ -1,3 +1,4 @@
+using SourceGenBenefit.Contracts;
 using WebApiClientCore.Attributes;
 
 namespace SourceGenBenefit.Benchmarks.Api;
@@ -8,7 +9,7 @@ public interface ITestEntityApiBase
     Task<IReadOnlyList<TestEntityDto>> GetList(CancellationToken ct = default);
 
     [HttpPost]
-    Task Create([JsonContent] CreateTestEntityCommand command, CancellationToken ct = default);
+    Task Create([JsonContent] CreateTestEntity entity, CancellationToken ct = default);
 
     [HttpDelete]
     Task Clear(CancellationToken ct = default);
@@ -19,3 +20,6 @@ public interface ITestEntityApiBefore : ITestEntityApiBase;
 
 [HttpHost("http://localhost:5251/after/test-entity")]
 public interface ITestEntityApiAfter : ITestEntityApiBase;
+
+[HttpHost("http://localhost:5000/after/test-entity")]
+public interface ITestEntityApiAfterNativeAot : ITestEntityApiBase;

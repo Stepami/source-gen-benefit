@@ -1,6 +1,5 @@
 using AutoMapper;
-using SourceGenBenefit.Before.Create;
-using SourceGenBenefit.Before.GetList;
+using SourceGenBenefit.Contracts;
 using SourceGenBenefit.Domain;
 
 namespace SourceGenBenefit.Before;

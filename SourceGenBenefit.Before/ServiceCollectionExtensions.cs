@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using SourceGenBenefit.Before.Create;
+using SourceGenBenefit.Contracts;
 using SourceGenBenefit.Domain;
 
 namespace SourceGenBenefit.Before;

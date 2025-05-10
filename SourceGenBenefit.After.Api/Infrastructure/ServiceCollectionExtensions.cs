@@ -8,7 +8,7 @@ public static class ServiceCollectionExtensions
     {
         services.ConfigureHttpJsonOptions(options =>
         {
-            options.SerializerOptions.TypeInfoResolverChain.Insert(0, AppJsonContext.Default);
+            options.SerializerOptions.TypeInfoResolverChain.Add(AppJsonContext.Default);
         });
         services.AddLogging(builder => builder.ClearProviders().AddConsole());
         var dbSettings = new DbSettings();

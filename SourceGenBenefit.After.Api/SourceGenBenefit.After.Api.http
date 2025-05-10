@@ -6,3 +6,14 @@ Accept: application/json
 ###
 
 DELETE {{Api_HostAddress}}/after/test-entity
+
+###
+
+POST {{Api_HostAddress}}/after/test-entity
+Content-Type: application/json
+
+{
+  "number": 1,
+  "amount": 12.34,
+  "description": "Test_desc"
+}

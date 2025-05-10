@@ -1,18 +1,8 @@
 using Bogus;
 using Bogus.Extensions;
+using SourceGenBenefit.Contracts;
 
-namespace SourceGenBenefit.Benchmarks.Api;
-
-public record CreateTestEntityCommand(CreateTestEntity CreateTestEntity);
-
-public record CreateTestEntity
-{
-    public int Number { get; set; }
-
-    public decimal Amount { get; set; }
-
-    public required string Description { get; set; }
-}
+namespace SourceGenBenefit.Benchmarks;
 
 public sealed class CreateTestEntityFaker : Faker<CreateTestEntity>
 {

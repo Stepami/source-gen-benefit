@@ -1,4 +1,5 @@
 using Riok.Mapperly.Abstractions;
+using SourceGenBenefit.Contracts;
 using SourceGenBenefit.Domain;
 
 namespace SourceGenBenefit.After.Create;

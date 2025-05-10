@@ -5,9 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using SourceGenBenefit.After;
 using SourceGenBenefit.After.Create;
 using SourceGenBenefit.Before;
+using SourceGenBenefit.Contracts;
 using SourceGenBenefit.Domain;
-using BeforeTestEntitiesListQuery = SourceGenBenefit.Before.GetList.TestEntitiesListQuery;
-using AfterTestEntitiesListQuery = SourceGenBenefit.After.GetList.TestEntitiesListQuery;
 
 namespace SourceGenBenefit.Benchmarks.InProc;
 
@@ -32,9 +31,9 @@ public class GetListBenchmark
             beforeServiceProvider,
             beforeServiceProvider.GetRequiredService<MediatR.IMediator>(),
             beforeServiceProvider.GetRequiredService<ITestEntityRepository>());
-        foreach (var entity in _faker.Before.Generate(ListSize))
+        foreach (var entity in _faker.Generate(ListSize))
         {
-            await _before.Mediator.Send(new Before.Create.CreateTestEntityCommand(entity));
+            await _before.Mediator.Send(new CreateTestEntityCommand(entity));
         }
 
         var afterServiceProvider = new ServiceCollection().AddAfter().BuildServiceProvider();
@@ -42,7 +41,7 @@ public class GetListBenchmark
             afterServiceProvider,
             afterServiceProvider.GetRequiredService<Mediator.IMediator>(),
             afterServiceProvider.GetRequiredService<ITestEntityRepository>());
-        foreach (var entity in _faker.After.Generate(ListSize))
+        foreach (var entity in _faker.Generate(ListSize))
         {
             await _after.Repository.CreateTestEntity(entity.ToTestEntity());
         }
@@ -53,7 +52,7 @@ public class GetListBenchmark
     {
         for (var i = 0; i < QueryCount; i++)
         {
-            var result = await _before.Mediator.Send(new BeforeTestEntitiesListQuery());
+            var result = await _before.Mediator.Send(new TestEntitiesListQuery());
             _consumer.Consume(result);
         }
     }
@@ -63,7 +62,7 @@ public class GetListBenchmark
     {
         for (var i = 0; i < QueryCount; i++)
         {
-            var result = await _after.Mediator.Send(new AfterTestEntitiesListQuery());
+            var result = await _after.Mediator.Send(new TestEntitiesListQuery());
             _consumer.Consume(result);
         }
     }

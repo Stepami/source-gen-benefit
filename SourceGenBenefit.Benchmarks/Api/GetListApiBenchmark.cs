@@ -26,15 +26,28 @@ public class GetListApiBenchmark
                 o.UseReturnValuePropertyValidate = false;
             });
         services.AddHttpApi<ITestEntityApiAfter>();
+        services.AddHttpApi<ITestEntityApiAfterNativeAot>();
         services.AddHttpApi<ITestEntityApiBefore>();
         _serviceProvider = services.BuildServiceProvider();
         using var scope = _serviceProvider.CreateScope();
         var before = scope.ServiceProvider.GetRequiredService<ITestEntityApiBefore>();
         var after = scope.ServiceProvider.GetRequiredService<ITestEntityApiAfter>();
-        foreach (var command in _faker.Generate(10).Select(x => new CreateTestEntityCommand(x)))
+        foreach (var entity in _faker.Generate(10))
         {
-            await before.Create(command);
-            await after.Create(command);
+            await before.Create(entity);
+            await after.Create(entity);
+        }
+    }
+
+    [Benchmark]
+    public async Task BeforeSourceGen()
+    {
+        using var scope = _serviceProvider.CreateScope();
+        var before = scope.ServiceProvider.GetService<ITestEntityApiBefore>();
+        for (var i = 0; i < QueryCount; i++)
+        {
+            var list = await before.GetList();
+            _consumer.Consume(list);
         }
     }
 
@@ -51,13 +64,13 @@ public class GetListApiBenchmark
     }
 
     [Benchmark]
-    public async Task BeforeSourceGen()
+    public async Task AfterSourceGenNativeAot()
     {
         using var scope = _serviceProvider.CreateScope();
-        var before = scope.ServiceProvider.GetService<ITestEntityApiBefore>();
+        var after = scope.ServiceProvider.GetService<ITestEntityApiAfterNativeAot>();
         for (var i = 0; i < QueryCount; i++)
         {
-            var list = await before.GetList();
+            var list = await after.GetList();
             _consumer.Consume(list);
         }
     }

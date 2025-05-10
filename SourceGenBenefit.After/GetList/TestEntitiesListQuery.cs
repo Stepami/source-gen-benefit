@@ -1,10 +1,9 @@
 using Mediator;
 using Microsoft.Extensions.Logging;
+using SourceGenBenefit.Contracts;
 using SourceGenBenefit.Domain;
 
 namespace SourceGenBenefit.After.GetList;
-
-public record TestEntitiesListQuery : IQuery<IReadOnlyList<TestEntityDto>>;
 
 public partial class TestEntitiesListQueryHandler(
     ITestEntityRepository repository,

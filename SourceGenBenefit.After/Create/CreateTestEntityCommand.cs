@@ -1,11 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 using Mediator;
 using Microsoft.Extensions.Logging;
+using SourceGenBenefit.Contracts;
 using SourceGenBenefit.Domain;
 
 namespace SourceGenBenefit.After.Create;
-
-public record CreateTestEntityCommand(CreateTestEntity CreateTestEntity) : ICommand;
 
 public partial class CreateTestEntityCommandHandler(
     ITestEntityRepository repository, 

@@ -1,4 +1,4 @@
-namespace SourceGenBenefit.Before.GetList;
+namespace SourceGenBenefit.Contracts;
 
 public record TestEntityDto
 {

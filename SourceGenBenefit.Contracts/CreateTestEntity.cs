@@ -3,7 +3,7 @@ using Validly.Extensions.Validators.Common;
 using Validly.Extensions.Validators.Numbers;
 using Validly.Extensions.Validators.Strings;
 
-namespace SourceGenBenefit.After.Create;
+namespace SourceGenBenefit.Contracts;
 
 [Validatable]
 public partial record CreateTestEntity

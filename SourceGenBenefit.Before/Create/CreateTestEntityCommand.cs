@@ -2,12 +2,10 @@ using AutoMapper;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Logging;
+using SourceGenBenefit.Contracts;
 using SourceGenBenefit.Domain;
 
 namespace SourceGenBenefit.Before.Create;
-
-public record CreateTestEntityCommand(
-    CreateTestEntity CreateTestEntity) : IRequest<Unit>;
 
 public class CreateTestEntityCommandHandler(
     IValidator<CreateTestEntity> validator,

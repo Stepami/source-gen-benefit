@@ -9,6 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\SourceGenBenefit.Contracts\SourceGenBenefit.Contracts.csproj" />
       <ProjectReference Include="..\SourceGenBenefit.Domain\SourceGenBenefit.Domain.csproj" />
     </ItemGroup>
 
@@ -21,9 +22,6 @@
       <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
       <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.4" />
       <PackageReference Include="Riok.Mapperly" Version="4.2.1" />
-      <PackageReference Include="Validly" Version="1.1.5" />
-      <PackageReference Include="Validly.Extensions.Validators" Version="1.1.3" />
-      <PackageReference Include="Validly.SourceGenerator" Version="1.1.5" />
     </ItemGroup>
 
 </Project>

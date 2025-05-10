@@ -62,39 +62,33 @@ https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8/runtime#configu
 
 | Method          | TestEntitiesCount |         Mean |     Error |    StdDev |    Gen0 | Allocated |
 |-----------------|-------------------|-------------:|----------:|----------:|--------:|----------:|
-| BeforeSourceGen | 1                 |   1,367.0 ns |  10.46 ns |   9.28 ns |  0.2098 |    1320 B |
-| AfterSourceGen  | 1                 |     755.7 ns |   0.75 ns |   0.71 ns |  0.0162 |     104 B |
-| BeforeSourceGen | 10                |  13,259.7 ns |  13.67 ns |  12.12 ns |  2.0905 |   13200 B |
-| AfterSourceGen  | 10                |   7,680.5 ns |  94.92 ns |  88.79 ns |  0.1602 |    1040 B |
-| BeforeSourceGen | 100               | 130,288.1 ns | 172.14 ns | 152.60 ns | 20.9961 |  132001 B |
-| AfterSourceGen  | 100               |  76,087.7 ns |  46.56 ns |  43.55 ns |  1.5869 |   10400 B |
+| BeforeSourceGen | 1                 |   1,290.5 ns |   0.78 ns |   0.73 ns |  0.2079 |    1312 B |
+| AfterSourceGen  | 1                 |     754.3 ns |   0.50 ns |   0.44 ns |  0.0153 |      96 B |
+| BeforeSourceGen | 10                |  12,930.6 ns |   9.82 ns |   9.19 ns |  2.0905 |   13120 B |
+| AfterSourceGen  | 10                |   7,538.4 ns |   4.21 ns |   3.51 ns |  0.1526 |     960 B |
+| BeforeSourceGen | 100               | 128,966.2 ns | 141.99 ns | 125.87 ns | 20.7520 |  131200 B |
+| AfterSourceGen  | 100               |  75,803.1 ns |  58.10 ns |  51.51 ns |  1.4648 |    9600 B |
 
 ## GetList in-proc
 | Method          | QueryCount |        Mean |     Error |    StdDev |    Gen0 |   Gen1 | Allocated |
 |-----------------|------------|------------:|----------:|----------:|--------:|-------:|----------:|
-| BeforeSourceGen | 1          |    398.7 ns |   6.58 ns |   5.84 ns |  0.2103 |      - |    1320 B |
-| AfterSourceGen  | 1          |    192.5 ns |   1.47 ns |   1.38 ns |  0.1032 |      - |     648 B |
-| BeforeSourceGen | 10         |  3,911.5 ns |  25.34 ns |  23.70 ns |  2.0981 | 0.0076 |   13200 B |
-| AfterSourceGen  | 10         |  1,548.8 ns |  15.51 ns |  12.95 ns |  1.0319 | 0.0019 |    6480 B |
-| BeforeSourceGen | 100        | 38,554.5 ns | 181.80 ns | 161.16 ns | 20.9961 | 0.0610 |  132000 B |
-| AfterSourceGen  | 100        | 15,241.3 ns |  88.52 ns |  82.80 ns | 10.3149 |      - |   64800 B |
-
-## Create API
-
-| Method          | TestEntitiesCount |       Mean |       Error |      StdDev |
-|-----------------|-------------------|-----------:|------------:|------------:|
-| AfterSourceGen  | 10                | 4,392.8 us |   196.15 us |   575.28 us |
-| BeforeSourceGen | 10                | 8,738.9 us | 1,383.93 us | 3,925.98 us |
-
+| BeforeSourceGen | 1          |    396.4 ns |   3.87 ns |   3.43 ns |  0.2103 |      - |    1320 B |
+| AfterSourceGen  | 1          |    157.9 ns |   1.65 ns |   1.54 ns |  0.1032 |      - |     648 B |
+| BeforeSourceGen | 10         |  3,900.8 ns |  25.16 ns |  23.54 ns |  2.0981 | 0.0076 |   13200 B |
+| AfterSourceGen  | 10         |  1,546.3 ns |  20.53 ns |  19.20 ns |  1.0319 | 0.0019 |    6480 B |
+| BeforeSourceGen | 100        | 39,000.4 ns | 209.98 ns | 175.35 ns | 20.9961 | 0.0610 |  132000 B |
+| AfterSourceGen  | 100        | 15,125.4 ns |  19.29 ns |  16.11 ns | 10.3149 |      - |   64800 B |
 
 ## GetList API
 
-| Method          | QueryCount |      Mean |     Error |     StdDev |    Median |        P95 |
-|-----------------|------------|----------:|----------:|-----------:|----------:|-----------:|
-| AfterSourceGen  | 10         |  2.316 ms | 0.0461 ms |  0.0615 ms |  2.314 ms |   2.389 ms |
-| BeforeSourceGen | 10         |  3.831 ms | 0.1039 ms |  0.2980 ms |  3.826 ms |   4.431 ms |
-| AfterSourceGen  | 100        | 27.095 ms | 2.5310 ms |  6.8857 ms | 24.303 ms |  42.186 ms |
-| BeforeSourceGen | 100        | 51.849 ms | 7.8106 ms | 20.4389 ms | 46.462 ms | 120.946 ms |
+| Method                  | QueryCount |      Mean |     Error |    StdDev |    Median |
+|-------------------------|------------|----------:|----------:|----------:|----------:|
+| BeforeSourceGen         | 10         |  3.128 ms | 0.0612 ms | 0.0916 ms |  3.073 ms |
+| AfterSourceGen          | 10         |  2.045 ms | 0.0407 ms | 0.1188 ms |  1.982 ms |
+| AfterSourceGenNativeAot | 10         |  3.626 ms | 0.0724 ms | 0.0889 ms |  3.567 ms |
+| BeforeSourceGen         | 100        | 31.265 ms | 0.6193 ms | 0.7832 ms | 31.450 ms |
+| AfterSourceGen          | 100        | 20.620 ms | 0.4116 ms | 1.1406 ms | 20.258 ms |
+| AfterSourceGenNativeAot | 100        | 35.570 ms | 0.2380 ms | 0.1988 ms | 35.561 ms |
 
 > Few things that cause the slightly lower performance in native AOT apps right now. First (in apps using the web SDK) is the new DATAS Server GC mode. This new GC mode uses far less memory than traditional ServerGC by dynamically adapting memory use based on the app's demands, but in this 1st generation it impacts the performance slightly. The goal is to remove the performance impact and enable DATAS for all Server GC apps in the future.
 Second is CoreCLR in .NET 8 has Dynamic PGO enabled by default, which allows the JIT to recompile hot methods with more aggressive optimizations based on what it observes while the app is running. Native AOT has static PGO with a default profile applied and by definition can never have Dynamic PGO.
