@@ -4,7 +4,7 @@ using SourceGenBenefit.After.Api.Infrastructure;
 using SourceGenBenefit.Contracts;
 using SourceGenBenefit.Domain;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateSlimBuilder(args);
 builder.Services.AddAfter(nullLogger: false, nullRepository: false);
 builder.Services.AddInfrastructure(builder.Configuration);
 
