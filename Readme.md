@@ -9,10 +9,17 @@ https://github.com/amis92/csharp-source-generators
 ![](https://github.com/martinothamar/Mediator/blob/main/img/benchmarks.png?raw=true)
 
 ## FluentValidation
+Зависимость от рефлексии:
+- https://github.com/FluentValidation/FluentValidation/issues/2307
 
 Замена - https://github.com/Hookyns/validly
 
 Docs - https://validly.gitbook.io/docs
+
+Молодое решение:
+- https://github.com/Hookyns/validly/pull/9
+- https://github.com/Hookyns/validly/pull/10
+- https://github.com/Hookyns/validly/pull/12
 
 ![](https://validly.gitbook.io/~gitbook/image?url=https%3A%2F%2F4231388055-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252Fsrj2ue2EzleR5DCq3FJb%252Fuploads%252FoLTBUAF9y1sHTwVudhlY%252Fimage.png%3Falt%3Dmedia%26token%3D7175cf89-0c82-4c20-80ab-448fad1e1a67&width=768&dpr=4&quality=100&sign=57989cd&sv=2)
 ![](https://validly.gitbook.io/~gitbook/image?url=https%3A%2F%2F4231388055-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252Fsrj2ue2EzleR5DCq3FJb%252Fuploads%252FLfVAUVqPZGkQogWw3GfJ%252Fimage.png%3Falt%3Dmedia%26token%3D9c30a0aa-7b3f-4caa-ad38-58161ba38556&width=768&dpr=4&quality=100&sign=f0699630&sv=2)
@@ -24,11 +31,21 @@ Docs - https://validly.gitbook.io/docs
 https://mapperly.riok.app/docs/intro/#performance
 ![](https://habrastorage.org/webt/fw/id/bp/fwidbptyj6k0oqmtsfejpuahp_a.png)
 
+## Refit
+
+Замена - https://webapiclient.github.io/en/
+
+![](https://habrastorage.org/webt/xk/xj/cv/xkxjcv69ayvhevmvkj2oikarzrs.png)
+
 ## System.Text.Json
 
 Замена - https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/reflection-vs-source-generation
 
 Нюанс - https://t.me/epeshkblog/213
+Проблемы:
+- https://github.com/dotnet/runtime/issues/78602
+- https://github.com/dotnet/runtime/issues/55043
+- https://github.com/dotnet/aspnetcore/issues/61867
 
 https://devblogs.microsoft.com/dotnet/try-the-new-system-text-json-source-generator/
 
@@ -94,3 +111,10 @@ https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8/runtime#configu
 Second is CoreCLR in .NET 8 has Dynamic PGO enabled by default, which allows the JIT to recompile hot methods with more aggressive optimizations based on what it observes while the app is running. Native AOT has static PGO with a default profile applied and by definition can never have Dynamic PGO.
 Thirdly, JIT can detect hardware capabilities (e.g. CPU intrinsics) at runtime and target those in the code it generates. Native AOT however defaults to a highly compatible target instruction set which won't have those optimizations but you can specify them at compile time based on the hardware you know you're going to run on.
 Running the tests in video with DATAS disabled and native AOT configured for the target CPU could improve the results slightly.
+
+
+## Memory dumps
+
+Лежат в папке memory-snapshots, открываются через dotMemory: https://www.jetbrains.com/dotmemory/
+
+![](https://habrastorage.org/webt/t8/9s/nu/t89snubhlfanftmhpxscpzp0kia.png)
